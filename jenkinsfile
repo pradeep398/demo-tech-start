@@ -2,13 +2,13 @@ pipeline {
 
 agent {
     node {
-      label 'main'
+      label 'master'
     }
   }
   
       //tools {
 
-      //  maven 'maven-3.8.1'
+      //  maven 'maven 3.8.1'
   //  }
     
     stages {
@@ -23,8 +23,8 @@ agent {
     stage('SonarQube Analysis') {
       environment {
         SCANNER_HOME = tool 'sonarqube'
-        ORGANIZATION = "freestyle"
-        PROJECT_NAME = "freestyle"
+        ORGANIZATION = "maven"
+        PROJECT_NAME = "maven"
       }
       steps {
         withSonarQubeEnv('sonarqube') {
